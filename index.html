@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+    <title>Calculator</title>
+    <link href="style.css" rel="stylesheet">
+    <!-- Defer is used here so that the script loads after the entire page is parsed first -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- div that will contain the whole calculator-->
+    <div class="calculator-grid">
+        <!-- first div will contain the whole output screen of the calculator
+        and within it there will be two other screens: one will contain
+        the previous output and one will display the current output -->
+        
+        <!--data-* attribute can be used to embed custom data attributes in all HTML elements.
+        data-* can in js for better user experience and to not use same class for css and js.-->
+        <div class="output-screen">
+            <div data-previous-output class="previous-output"></div>
+            <div data-current-output class="current-output"></div>
+        </div>
+        <!-- span-two buttons take up twice the space of other buttons -->
+        <button data-all-clearclass="span-two">AC</button>
+        <button data-delete>DEL</button>
+        <button data-operation>÷</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation>*</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation>+</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-operation>-</button>
+        <button data-number>.</button>
+        <button data-number>0</button>
+        <button data-equals class="span-two">=</button>
+    </div>
+    
+</body>
+</html>

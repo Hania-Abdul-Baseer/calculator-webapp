@@ -1,0 +1,95 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Monaco', sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #9A33FF, #FF33FE);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    /* The whole content of the grid will be aligned now
+    instead of just the items when "align-items" was used */
+    align-content: center; 
+    min-height: 100vh; /* to fill out 100% of the height at all times */
+    /* the calculator grid will have 4 columns of 100 pixel wide */
+    grid-template-columns: repeat(4, 100px);
+    /* the calculator grid will have 6 rows
+    the first row which will be the display of the output will
+    have at a minimum width of 120 pixels and will grow as needed */
+    /* The grid's other 5 rows will have a width of 100px */
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);  
+}
+
+/* This selects all the calculator-grid class's button classes */
+.calculator-grid > button {
+    /* When the cursor hovers the buttons, the pointer icon will be shown */
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+/* The buttons with the class span-two will now take up the
+space of two columns instead of one like the other buttons */
+/* This is for the AC and = button */
+.span-two {
+    grid-column: span 2;
+}
+
+/* This is the whole output screen that includes the previous
+and current operands */
+.output-screen {
+    /* The column will start from column 1 and end at -1
+    which is the complete width possible for this grid */
+    grid-column: 1/-1;
+    background-color: rgba(0, 0, 0, .75);
+    /* The children of this container become flex items 
+    with a few initial values already defined.
+    One of which is displaying all items of this
+    container in a row. 
+    This is because the flex-direction property is set to row by default */
+    display: flex;
+
+    /* This property of flex container is set to stretch by default.
+    Which means the items stretch to the height of the container.*/
+    /* Its changed to flex-end so that
+    the items are aligned at the end of the cross axis
+    which depends on the direction (row or column) */
+    align-items: flex-end;
+    /* Each item within the container will have equal 
+    space around itself */
+    justify-content: space-around;
+    /* Will display all flex items in a column instead of row */
+    flex-direction: column;
+    padding: 10px;
+    /* So that the word (numbers here) wrap around and can grow.
+    The word wrap will happen by creating breaks between words
+    nd not just at the end of each word or space. */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+/* Selects the class .previous-output from insisde .output-screen */
+.output-screen .previous-output {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+/* Selects the class .current-output from inside .output-screen */
+.output-screen .current-output {
+    color: white;
+    font-size: 2.5rem;
+}
+
